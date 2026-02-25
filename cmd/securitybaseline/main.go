@@ -6,6 +6,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/hallucinaut/securitybaseline/pkg/baseline"
 	"github.com/hallucinaut/securitybaseline/pkg/compliance"
@@ -39,7 +40,7 @@ func main() {
 }
 
 func printUsage() {
-	fmt.Printf(`securitybaseline - Security Baseline Compliance Engine
+	fmt.Print(`securitybaseline - Security Baseline Compliance Engine
 
 Usage:
   securitybaseline <command> [options]
@@ -137,7 +138,7 @@ func checkBaseline() {
 		fmt.Printf("    Message: %s\n\n", result.Message)
 	}
 
-	fmt.Println(baseline.GenerateReport(engine))
+	fmt.Println(engine.GenerateReport())
 }
 
 func checkCompliance() {
@@ -246,7 +247,7 @@ func generateReport() {
 	})
 
 	fmt.Println("=== Baseline Report ===")
-	fmt.Println(baseline.GenerateReport(engine))
-	fmt.Println("\n=== Compliance Report ===")
+	fmt.Println(engine.GenerateReport())
+	fmt.Println("=== Compliance Report ===")
 	fmt.Println(compliance.GenerateReport(checker))
 }
