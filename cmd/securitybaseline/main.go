@@ -1,9 +1,6 @@
 package main
 
 import (
-	"os/signal"
-	"syscall"
-	"context"
 	"fmt"
 	"os"
 	"time"
